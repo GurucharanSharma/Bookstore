@@ -1,0 +1,50 @@
+package bookstorepkg;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class cookiecls
+ */
+@WebServlet("/cookiecls")
+public class cookiecls extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public cookiecls() {
+        super();
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cid = request.getParameter("cid");
+		
+		Cookie c1 = new Cookie("cid", cid);
+		Cookie c2 = new Cookie("visit", "1");
+		
+		c1.setMaxAge(200);
+		c2.setMaxAge(200);
+
+		response.addCookie(c1);
+		response.addCookie(c2);
+		
+		response.sendRedirect("shopping");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}
