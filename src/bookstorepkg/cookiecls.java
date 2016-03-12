@@ -14,17 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/cookiecls")
 public class cookiecls extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+    
     public cookiecls() {
         super();
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cid = request.getParameter("cid");
 		
@@ -40,11 +34,7 @@ public class cookiecls extends HttpServlet {
 		response.sendRedirect("shopping");
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }
